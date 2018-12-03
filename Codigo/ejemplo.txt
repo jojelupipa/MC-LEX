@@ -1,0 +1,45 @@
+#INCLUIR "libreria.h"
+#INCLUIR "libreria2.h"
+
+
+ENTERO _ve, ve_;
+REAL vreal_1, vreal2;
+CARACTER vchar;
+BOOLEANO bool;
+CADENA cad_ena;
+
+
+ENTEO funcion1 (ENTERO entero_1, REAL _real22) {
+
+    	ENTERO _x1 = 0;
+	REAL _real13 = 0.0;
+
+	MIENTRAS(_x1 < entero1){
+		_x1++;
+	}
+}
+
+CARACTER funcion2 (CARACTER _e1, CARACTER _e2){
+        SALIDA "introduzca dos caracteres: ";
+        ENTRADA e1, e2;
+
+        SI (e1 == 'a')
+            DEVOLVER e1;
+
+        SINO SI (e1 != 'b')
+            DEVOLVER e2;
+
+        SINO
+            DEVOLVER ' ' ;
+    }
+BOOLEANO funcion3 (ENTERO _ent){
+
+	OPCION(_ent):
+
+		CASO 1: DEVOLVER VERDADERO;
+
+		CASO 2: _ent++;
+		ROMPER;
+
+		POR-DEFECTO: DEVOLVER FALSO;
+}

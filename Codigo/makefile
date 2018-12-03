@@ -1,6 +1,6 @@
 
 all: ficherolex
-	g++ -o ejemplo ficheroLex.cpp -ll
+	g++ -o analizar ficheroLex.cpp -ll
 
 ficherolex:
 	lex -o ficheroLex.cpp expresiones.lex
@@ -10,4 +10,4 @@ ejecuta:
 
 clean:
 	rm -f -r *.cpp
-	rm -f -r ejemplo
+	rm -f -r analizar
