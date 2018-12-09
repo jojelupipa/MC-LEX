@@ -3,9 +3,11 @@
 %{
 #include <cstdio>
 #include <iostream>
-using namespace std;
-int linea = 0;
-
+  using namespace std;
+  int linea = 0;
+  int openBrackets = 0;
+  int openBraces = 0;
+  int lastOpenBracket, lastOpenBrace;
 %}
 
 letra	[a-z]
@@ -40,10 +42,10 @@ mayus [A-Z]+
 "FALSO"					
 ","					
 ";"					
-"("					
-")"					
-"{"					
-"}"					
+"(" 	{openBrackets++; if(openBrackets == 1) lastOpenBracket = linea;}				
+")"	{openBrackets--; if(openBrackets < 0){ printf("\n(Linea %d) Cierre de paréntesis inesperado.\n",linea); openBrackets = 0;}}
+"{"	{openBraces++; if(openBraces == 1) lastOpenBrace = linea;}				
+"}"	{openBraces--; if(openBraces < 0) { printf("\n(Linea %d) Cierre de llave inesperado.\n",linea); openBraces = 0;}}
 "="					
 "=="					
 "<="					
@@ -76,6 +78,17 @@ mayus [A-Z]+
 [\n]					++linea;
 {mayus} printf("\n(Linea %d) Error lexico: Palabra desconocida %s\n",linea,yytext);
 . printf("\n(Linea %d) Error lexico: Token desconocido %s\n",linea,yytext);
+<<EOF>> {
+  if(openBrackets != 0) {
+    printf("\nQueda algún paréntesis por cerrar. Abierto en línea %d\n",lastOpenBracket); 
+  }
+  
+  if(openBraces != 0) {
+    printf("\nQueda alguna llave por cerrar. Abierta en línea %d\n",lastOpenBrace); 
+  }
+  yyterminate();
+  }
+
 
 
 
