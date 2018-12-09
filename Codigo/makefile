@@ -6,7 +6,7 @@ ficherolex:
 	lex -o ficheroLex.cpp expresiones.lex
 
 ejecuta:
-	./ejemplo fichero.txt
+	./analizar ejemplo.txt
 
 clean:
 	rm -f -r *.cpp
