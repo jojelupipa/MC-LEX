@@ -19,13 +19,14 @@ ENTEO funcion1 (ENTERO entero_1, REAL _real22) {
 	}
 }
 
+}
 CARACTER funcion2 (CARACTER _e1, CARACTER _e2){
         SALIDA "introduzca dos caracteres: ";
         ENTRADA e1, e2;
 
         SI (e1 == 'a'))
             DEVOLVER e1;
-
+(
         SINO SI (e1 != 'b')
             DEVOLVER e2;
 
@@ -42,5 +43,6 @@ BOOLEANO funcion3 (ENTERO _ent){
 		ROMPER;
 
 		POR-DEFECTO: DEVOLVER FALSO;
-                (
 }
+
+{
